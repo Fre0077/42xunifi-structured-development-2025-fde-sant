@@ -17,19 +17,19 @@ int one_difference(const char *s1, const char *s2)
     return 0;
 }
 
-int check_older(const char *new_pw, PasswordHistory *history)
+int check_older(const char *new_pw, PasswordHistory **history)
 {
-    PasswordHistory *head = history;
-    for (int i = 0; i < 2 && history->next; i++)
+    PasswordHistory *head = *history;
+    for (int i = 0; i < 2 && (*history)->next; i++)
     {
-        history = history->next;
-        if (one_difference(new_pw, history->password))
+        history = (*history)->next;
+        if (one_difference(new_pw, (*history)->password))
         {
-            history = head;
+            *history = head;
             return 1;
         }
     }
-    history = head;
+    *history = head;
     return 0;
 }
 
@@ -51,7 +51,7 @@ PwStatus validate_password(const char *new_pw, PasswordHistory *history)
         status.state = INVALID;
     else if (check_old(new_pw, history->password))
         status.state = INVALID;
-    else if (check_older(new_pw, history))
+    else if (check_older(new_pw, *history))
         status.state = INVALID_SIMILAR;
     return status;
 }
