@@ -51,7 +51,7 @@ PwStatus validate_password(const char *new_pw, PasswordHistory *history)
         status.state = INVALID;
     else if (check_old(new_pw, history->password))
         status.state = INVALID;
-    else if (check_older(new_pw, *history))
+    else if (check_older(new_pw, &history))
         status.state = INVALID_SIMILAR;
     return status;
 }
