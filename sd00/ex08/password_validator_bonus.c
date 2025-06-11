@@ -2,7 +2,8 @@
 
 int one_difference(const char *s1, const char *s2)
 {
-    int i = 0, count = 0;
+    int i = 0;
+    int count = 0;
     while (s1[i] && s2[i])
     {
         if (s1[i] != s2[i])
