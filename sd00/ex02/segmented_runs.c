@@ -19,9 +19,8 @@ int count_segments(const int *arr, int size)
 		{
 			count = 0;
 			last = arr[i];
-			i++;
 		}
-		if (last == -1 || last < arr[i])
+		if ((last == -1 || last < arr[i]) && arr[i] != -1)
 			count++;
 		if (count >= 3)
 			ret++;

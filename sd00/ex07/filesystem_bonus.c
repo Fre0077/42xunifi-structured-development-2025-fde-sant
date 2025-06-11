@@ -4,7 +4,7 @@ int compute_total_size(FSNode *node)
 {
     int total = 0;
     if (!node)
-        return (0);
+        return 0;
     if (!node->is_folder)
         return (node->size);
     FSNode *child = node->childrens;
@@ -13,7 +13,7 @@ int compute_total_size(FSNode *node)
         total += compute_total_size(child);
         child = child->sibling;
     }
-    return (total);
+    return total;
 }
 
 void print_structure(const FSNode *node, int indent)

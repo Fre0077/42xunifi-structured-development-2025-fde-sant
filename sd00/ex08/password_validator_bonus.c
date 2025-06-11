@@ -19,7 +19,7 @@ int one_difference(const char *s1, const char *s2)
 
 int check_older(const char *new_pw, PasswordHistory *history)
 {
-    PasswordHistory *head;
+    PasswordHistory *head = history;
     for (int i = 0; i < 2 && history->next; i++)
     {
         history = history->next;
