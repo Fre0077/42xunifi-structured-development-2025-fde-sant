@@ -24,7 +24,10 @@ int check_older(const char *new_pw, PasswordHistory *history)
     {
         history = history->next;
         if (one_difference(new_pw, history->password))
-            return (history = head, 1);
+        {
+            history = head;
+            return 1;
+        }
     }
     history = head;
     return 0;
