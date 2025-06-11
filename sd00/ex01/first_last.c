@@ -12,7 +12,7 @@ int main ()
 void first_last(int arr[], int size, int target, int *first, int *last)
 {
 	if (arr == NULL || size <= 0)
-        return (-1);
+        return ;
 	*first = -1;
 	*last = -1;
 	for (int i = 0; i < size; i++)
