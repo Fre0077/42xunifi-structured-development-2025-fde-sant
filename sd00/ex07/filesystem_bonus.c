@@ -24,7 +24,7 @@ void print_structure(const FSNode *node, int indent)
         printf("  ");
     printf("%s%s\n", node->name, node->is_folder ? "/" : "");
     if (!node->is_folder)
-        return ;
+        return;
     FSNode *child = node->childrens;
     for (int i = 0; i < node->size; i++)
     {
@@ -40,7 +40,7 @@ void free_filesystem(FSNode *node)
     if (!node->is_folder)
     {
         free(node);
-        return ;
+        return;
     }
     FSNode *child = node->childrens;
     FSNode *temp;

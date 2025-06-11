@@ -1,6 +1,6 @@
 #include "filesystem.h"
 
-int main ()
+int main()
 {
 	FSNode *Desktop = create_folder("Desktop");
 	FSNode *hello = create_file("hello", 50);
@@ -12,13 +12,13 @@ int main ()
 	add_child(Desktop, world);
 	add_child(games, Minecraft);
 	printf("Tree structure:\n");
-    print_structure(Desktop, 0);
+	print_structure(Desktop, 0);
 
-    printf("\nTotal size of Desktop: %d\n", compute_total_size(Desktop));
-    printf("Total size of hello: %d\n", compute_total_size(games));
-    printf("Total size of games: %d\n", compute_total_size(world));
+	printf("\nTotal size of Desktop: %d\n", compute_total_size(Desktop));
+	printf("Total size of hello: %d\n", compute_total_size(games));
+	printf("Total size of games: %d\n", compute_total_size(world));
 
-    free_filesystem(Desktop);
+	free_filesystem(Desktop);
 	return 0;
 }
 
@@ -49,7 +49,7 @@ FSNode *create_folder(const char *name)
 void add_child(FSNode *parent, FSNode *child)
 {
 	if (parent->is_folder == 0)
-		return ;
+		return;
 
 	FSNode *head;
 	if (parent->childrens == NULL)

@@ -3,10 +3,10 @@
 int main()
 {
     // Crea la lista delle password precedenti (history)
-    PasswordHistory pw4 = { "OldPass3@", NULL };
-    PasswordHistory pw3 = { "OldPass2@", &pw4 };
-    PasswordHistory pw2 = { "OldPas42@", &pw3 };
-    PasswordHistory pw1 = { "OldPas41@", &pw2 };
+    PasswordHistory pw4 = {"OldPass3@", NULL};
+    PasswordHistory pw3 = {"OldPass2@", &pw4};
+    PasswordHistory pw2 = {"OldPas42@", &pw3};
+    PasswordHistory pw1 = {"OldPas41@", &pw2};
 
     // Nuova password da testare
     const char *new_pw = "OldPass3@";

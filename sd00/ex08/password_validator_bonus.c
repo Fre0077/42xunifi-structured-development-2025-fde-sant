@@ -23,13 +23,12 @@ int check_older(const char *new_pw, PasswordHistory *history)
     for (int i = 0; i < 2 && history->next; i++)
     {
         history = history->next;
-        if(one_difference(new_pw, history->password))
+        if (one_difference(new_pw, history->password))
             return (history = head, 1);
     }
     history = head;
     return 0;
 }
-
 
 PwStatus validate_password(const char *new_pw, PasswordHistory *history)
 {

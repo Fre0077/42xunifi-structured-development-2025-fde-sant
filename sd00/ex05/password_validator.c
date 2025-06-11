@@ -1,22 +1,22 @@
 #include "password_validator.h"
 
-int main ()
+int main()
 {
     const char *curr_pw = "Password1@";
     const char *test_pw[] = {
-        "Password1@",    // uguale a quella vecchia
-        "pass",          // troppo corta
-        "password1@",    // manca maiuscola
-        "PASSWORD1@",    // manca minuscola
-        "Password@@",    // manca cifra
-        "Password12",    // manca speciale
-        "Password2@",    // valida
-        NULL
-    };
+        "Password1@", // uguale a quella vecchia
+        "pass",       // troppo corta
+        "password1@", // manca maiuscola
+        "PASSWORD1@", // manca minuscola
+        "Password@@", // manca cifra
+        "Password12", // manca speciale
+        "Password2@", // valida
+        NULL};
 
-    for (int i = 0; test_pw[i] != NULL; i++) {
+    for (int i = 0; test_pw[i] != NULL; i++)
+    {
         PwStatus result = validate_password(test_pw[i], curr_pw);
-        printf("Test #%d: \"%s\" -> %s\n", i+1, test_pw[i],
+        printf("Test #%d: \"%s\" -> %s\n", i + 1, test_pw[i],
                result.state == VALID ? "VALIDA" : "NON VALIDA");
     }
     return 0;

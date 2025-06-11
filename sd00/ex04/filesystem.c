@@ -1,6 +1,6 @@
 #include "filesystem.h"
 
-int main ()
+int main()
 {
 	FSNode *Desktop = create_folder("Desktop");
 	FSNode *hello = create_folder("hello");
@@ -48,7 +48,7 @@ FSNode *create_folder(const char *name)
 void add_child(FSNode *parent, FSNode *child)
 {
 	if (parent->is_folder == 0)
-		return ;
+		return;
 
 	FSNode *head;
 	if (parent->childrens == NULL)
